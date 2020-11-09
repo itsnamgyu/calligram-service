@@ -1,0 +1,82 @@
+.landing-container {
+  position: fixed;
+  background: #222;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.landing-gif {
+  position: absolute;
+  left: 20%;
+  top: 40%;
+  width: 70%;
+  height: 60%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .landing-gif {
+    left: 25%;
+    top: 25%;
+    width: 70%;
+    height: 70%;
+  }
+}
+
+.landing-content {
+  position: absolute;
+  background: #000a;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  text-align: right;
+}
+
+.title-logo {
+  height: 8rem;
+  margin-top: 7.5rem;
+}
+
+.title-header {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+@media (min-width: 768px) {
+  .title-logo {
+    height: 14rem;
+  }
+
+  .title-header {
+    font-size: 1.5rem;
+  }
+}
+
+.landing-copyright {
+  position: absolute;
+  left: 0;
+  bottom: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 300;
+  text-align: center;
+  width: 100%;
+  color: white;
+}
+
+.landing-content .btn-landing {
+  background: none;
+  font-weight: 700;
+  color: white;
+  border: 1px solid white;
+}
+
+.landing-content .btn-landing:hover {
+  background: white;
+  color: black;
+}
+

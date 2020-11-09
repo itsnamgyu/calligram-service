@@ -1,42 +1,123 @@
 .content {
-  min-height: 60vh;
+  min-height: 540px;
 }
 
-.submenu {
-  padding: 3rem 0;
-  border-bottom: 1px solid #eee;
+h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-top: 1.25rem;
 }
 
-.submenu-link {
-  display: block;
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
+h1.number {
+  font-size: 3.5rem;
+  color: #339CEC;
 }
 
-.submenu-link:hover {
-  text-decoration: none;
+@media (min-width: 576px) {
+  h1 {
+    font-size: 3rem;
+    margin-top: 1.5rem;
+  }
+
+  h1.number {
+    font-size: 4.5rem;
+  }
 }
 
-.submenu-link:last-child {
+h2 {
+  font-size: 1.375rem;
+  font-weight: 700;
+  margin-top: 1rem;
+  color: #444;
+}
+
+@media (min-width: 576px) {
+  h2 {
+    font-size: 1.5rem;
+    margin-top: 1.25rem;
+  }
+}
+
+
+h1,
+h2,
+h3,
+h4 {
+  margin-bottom: 0.75rem;
+}
+
+h1:last-child,
+h2:last-child,
+h3:last-child,
+h4:last-child {
   margin-bottom: 0;
 }
 
-.hero-title {
-  font-size: 1.75rem;
-  font-weight: 900;
-  color: white;
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child {
+  margin-top: 0;
 }
 
-@media (min-width: 992px) {
-  .content {
-    min-height: 75vh;
-  }
+p,
+li {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: #444;
+}
 
-  .submenu-link {
+@media (min-width: 576px) {
+  p,
+  li {
     font-size: 1.125rem;
   }
+}
 
-  .hero-title {
-    font-size: 2.5rem;
-  }
+p {
+  margin-bottom: 0.75rem;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.btn {
+  border-radius: 0;
+}
+
+.btn-back {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.btn-outline-white {
+  background: none;
+  font-weight: 300;
+  color: white;
+  border: 1px solid white;
+}
+
+.btn-outline-white:hover,
+.btn-outline-white.active {
+  background: white;
+  color: black;
+}
+
+.btn-box {
+  border-radius: 0.5rem;
+  font-weight: 700;
+  background: white;
+  padding: 1rem 2rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05), 0 8px 32px rgba(0, 0, 0, 0.04),
+    0 8px 64px rgba(0, 0, 0, 0.04);
+}
+
+.card {
+  background: white;
+  border: none;
+  padding: 1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05), 0 8px 32px rgba(0, 0, 0, 0.04),
+  0 8px 64px rgba(0, 0, 0, 0.04);
 }

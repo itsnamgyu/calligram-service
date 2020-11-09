@@ -1,0 +1,65 @@
+{% extends 'core/base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'core/css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'core/css/navbar.css' %}">
+  <link rel="stylesheet" href="{% static 'core/css/header.css' %}">
+  <link rel="stylesheet" href="{% static 'core/css/footer.css' %}">
+  <link rel="stylesheet" href="{% static 'core/css/photo.css' %}">
+{% endblock head %}
+
+{% block body %}
+
+  {% include 'core/navbar.html' %}
+
+  <div class="content">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-12 col-md-8">
+          <div class="mb-5">
+            <h1 class="number mb-0">3</h1>
+            <h1 class="mt-0">YOUR BEAUTIFUL<br>TEXT</h1>
+            <p>We have read your handwriting and fixed it for you!</p>
+          </div>
+
+          <div class="mb-5">
+            <h2>Original Image</h2>
+            <img class="card w-100 p-0" src="{% static 'core/img/hw.jpg' %}">
+          </div>
+
+          <h2>Original Text</h2>
+          <div class="mb-5">
+            <div class="card mb-5">
+              <p class="mb-4">안녕아세요 저희는 개츠비 팀입니다. 저희 프로젝트 히름은 캘리그램입니다. 저희 팀의 구성원은 남규, 지영, 세진, 혜인으로 네명우로 구성되어
+                있습니다. 이쁘게 봐주세요! 감쟈합니다.</p>
+              <p class="text-right text-danger font-weight-bold">
+                Errors detected<i class="fas fa-times-circle ml-2"></i>
+              </p>
+            </div>
+          </div>
+
+          <h2>Corrected Text</h2>
+          <div class="mb-5">
+            <div class="card mb-3">
+              <p class="mb-4">안녕하세요 저희는 개츠비 팀입니다. 저희 프로젝트 이름은 캘리그램입니다. 저희 팀의 구성원은 남규, 지영, 세진, 혜인으로 네명으로 구성되어 있습니다.
+                이쁘게 봐주세요! 감사합니다.</p>
+              <p class="text-right text-success font-weight-bold">
+                Errors corrected<i class="fas fa-check-circle ml-2"></i>
+              </p>
+            </div>
+            <button class="btn btn-box w-100">
+              <i class="fas fa-clipboard mr-2"></i>COPY TO CLIPBOARD
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% include 'core/footer.html' %}
+
+{% endblock body %}
+{% block body_script %}
+{% endblock body_script %}
