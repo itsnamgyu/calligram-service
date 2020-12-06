@@ -6,6 +6,7 @@ django-dotenv
 django-bootstrap4
 django-allauth
 django-debug-toolbar
+py-hanspell
 # Live reload for development
 django-livesync
 # Amazon SES (Email)

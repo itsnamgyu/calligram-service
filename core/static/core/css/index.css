@@ -1,0 +1,25 @@
+#image-upload-input {
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+#image-upload-label:hover {
+  cursor: pointer !important;
+}
+
+.image-upload-button {
+  font-size: 1rem;
+  padding: 2rem 0;
+}
+
+.image-upload-button:hover {
+  background: #eee;
+}
+
+.image-upload-button .fas {
+  font-size: 3rem;
+}

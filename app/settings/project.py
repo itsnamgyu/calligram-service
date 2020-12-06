@@ -10,8 +10,8 @@ from .env_loader import fetch_env
 # TODO: change APP
 DJANGO_ENV = fetch_env("DJANGO_FD_ENV", default="DEV")
 # TODO: change defaults
-SITE_DOMAIN = fetch_env("SITE_DOMAIN", default="food.namgyu.io")
-SITE_NAME = fetch_env("SITE_NAME", default="Food Selector")
+SITE_DOMAIN = fetch_env("SITE_DOMAIN", default="calligram.namgyu.io")
+SITE_NAME = fetch_env("SITE_NAME", default="Calligram")
 SUPPORT_EMAIL = "its@namgyu.io"
 
 # Appended to base settings

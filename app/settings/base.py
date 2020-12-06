@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sites",
+    "django.contrib.humanize",
     "base",
     "allauth",
     "allauth.account",
@@ -66,7 +67,7 @@ INSTALLED_APPS = [
 SES_ENABLED = fetch_env("SES_ENABLED", "FALSE").upper() == "TRUE"
 SENDGRID_ENABLED = fetch_env("SENDGRID_ENABLED", "FALSE").upper() == "TRUE"
 SIMPLE_SENDGRID_ENABLED = (
-    fetch_env("SIMPLE_SENDGRID_ENABLED", "FALSE").upper() == "TRUE"
+        fetch_env("SIMPLE_SENDGRID_ENABLED", "FALSE").upper() == "TRUE"
 )
 
 if DEBUG:
@@ -161,7 +162,7 @@ if DEBUG:
 else:
     MEDIA_ROOT = require_env("MEDIA_ROOT")
 
-LOGIN_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "/index/"
 ACCOUNT_LOGOUT_REDIRECT_URL = "/"
 
 # Summernote
@@ -207,7 +208,6 @@ ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_LOGOUT_ON_GET = True
-ACCOUNT_FORMS = {"signup": "core.account.forms.SignupForm"}
 
 ACCOUNT_EMAIL_SUBJECT_PREFIX = ""
 

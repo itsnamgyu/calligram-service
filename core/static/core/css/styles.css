@@ -1,5 +1,5 @@
 .content {
-  min-height: 540px;
+  min-height: 75vh;
 }
 
 h1 {
@@ -9,7 +9,8 @@ h1 {
 }
 
 h1.number {
-  font-size: 4rem;
+  font-size: 3rem;
+  font-weight: 900;
   color: #339CEC;
 }
 
@@ -20,7 +21,7 @@ h1.number {
   }
 
   h1.number {
-    font-size: 5rem;
+    font-size: 4rem;
   }
 }
 

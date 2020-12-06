@@ -4,7 +4,7 @@
   <div class="navbar-middle navbar navbar-expand-lg">
     <div class="container">
       <a class="navbar-brand nav-title" href="{% url 'core:landing' %}">
-       <img class="nav-logo" src="{% static 'core/img/logo-black.png' %}">
+        <img class="nav-logo" src="{% static 'core/img/logo-black.png' %}">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,6 +12,24 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
+          {% if request.user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'core:index' %}">SCAN CALLIGRAM</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'core:history-list' %}">HISTORY</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'account_logout' %}">SIGN OUT</a>
+            </li>
+          {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'account_login' %}">LOG IN</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'account_signup' %}">SIGN UP</a>
+            </li>
+          {% endif %}
           {% for menu in '' %}
             {% if not menu.disabled %}
               <li class="nav-item">

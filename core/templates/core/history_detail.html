@@ -1,0 +1,82 @@
+{% extends 'core/base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'core/css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'core/css/navbar.css' %}">
+  <link rel="stylesheet" href="{% static 'core/css/header.css' %}">
+  <link rel="stylesheet" href="{% static 'core/css/footer.css' %}">
+  <link rel="stylesheet" href="{% static 'core/css/history.css' %}">
+  <script src="{% static 'core/js/result.js' %}"></script>
+{% endblock head %}
+
+{% block body %}
+
+  {% include 'core/navbar.html' %}
+
+  <div class="content">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <div class="mb-5">
+            <h1 class="mt-0">YOUR BEAUTIFUL TEXT</h1>
+            <p>Here is your previous Calligram.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <div class="mb-5">
+            <h2>Original Image</h2>
+            <img class="card w-100 p-0" src="{{ result.image.url }}">
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+
+          <h2>Original Text</h2>
+          <div class="mb-5">
+            <div class="card mb-5">
+              <p class="mb-4">{{ result.text }}</p>
+              {% if result.correct %}
+                <p class="text-right text-success font-weight-bold">
+                  No errors detected <i class="fas fa-check-circle ml-2"></i>
+                </p>
+              {% else %}
+                <p class="text-right text-danger font-weight-bold">
+                  Errors detected<i class="fas fa-times-circle ml-2"></i>
+                </p>
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="mb-5">
+            {% if not result.correct %}
+              <h2>Corrected Text</h2>
+              <div class="card mb-3">
+                <p class="mb-4">{{ result.corrected_text }}</p>
+                <p class="text-right text-success font-weight-bold">
+                  Errors corrected<i class="fas fa-check-circle ml-2"></i>
+                </p>
+              </div>
+              {% if result.correct %}
+                <input id="clipboard-copy-text" type="text" value="{{ result.text }}" hidden>
+              {% else %}
+                <input id="clipboard-copy-text" type="text" value="{{ result.corrected_text }}" hidden>
+              {% endif %}
+            {% endif %}
+            <button id="clipboard-copy-button" class="btn btn-box w-100">
+              <i class="fas fa-clipboard mr-2"></i>COPY TO CLIPBOARD
+              <i id="clipboard-copy-icon" class="fas fa-check-circle text-success ml-2" hidden></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% include 'core/footer.html' %}
+
+{% endblock body %}
+{% block body_script %}
+{% endblock body_script %}

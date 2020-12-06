@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="{% static 'core/css/navbar.css' %}">
   <link rel="stylesheet" href="{% static 'core/css/header.css' %}">
   <link rel="stylesheet" href="{% static 'core/css/footer.css' %}">
+  <script src="{% static 'core/js/result.js' %}"></script>
 {% endblock head %}
 
 {% block body %}
@@ -16,40 +17,57 @@
   <div class="content">
     <div class="container py-5">
       <div class="row">
-        <div class="col-12 col-md-8">
+        <div class="col-12 col-md-6">
           <div class="mb-5">
             <h1 class="number mb-0">3</h1>
             <h1 class="mt-0">YOUR BEAUTIFUL<br>TEXT</h1>
             <p>We have read your handwriting and fixed it for you!</p>
           </div>
-
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-6">
           <div class="mb-5">
             <h2>Original Image</h2>
-            <img class="card w-100 p-0" src="{% static 'core/img/hw.jpg' %}">
+            <img class="card w-100 p-0" src="{{ result.image.url }}">
           </div>
+        </div>
+        <div class="col-12 col-md-6">
 
           <h2>Original Text</h2>
           <div class="mb-5">
             <div class="card mb-5">
-              <p class="mb-4">안녕아세요 저희는 개츠비 팀입니다. 저희 프로젝트 히름은 캘리그램입니다. 저희 팀의 구성원은 남규, 지영, 세진, 혜인으로 네명우로 구성되어
-                있습니다. 이쁘게 봐주세요! 감쟈합니다.</p>
-              <p class="text-right text-danger font-weight-bold">
-                Errors detected<i class="fas fa-times-circle ml-2"></i>
-              </p>
+              <p class="mb-4">{{ result.text }}</p>
+              {% if result.correct %}
+                <p class="text-right text-success font-weight-bold">
+                  No errors detected <i class="fas fa-check-circle ml-2"></i>
+                </p>
+              {% else %}
+                <p class="text-right text-danger font-weight-bold">
+                  Errors detected<i class="fas fa-times-circle ml-2"></i>
+                </p>
+              {% endif %}
             </div>
           </div>
 
-          <h2>Corrected Text</h2>
           <div class="mb-5">
-            <div class="card mb-3">
-              <p class="mb-4">안녕하세요 저희는 개츠비 팀입니다. 저희 프로젝트 이름은 캘리그램입니다. 저희 팀의 구성원은 남규, 지영, 세진, 혜인으로 네명으로 구성되어 있습니다.
-                이쁘게 봐주세요! 감사합니다.</p>
-              <p class="text-right text-success font-weight-bold">
-                Errors corrected<i class="fas fa-check-circle ml-2"></i>
-              </p>
-            </div>
-            <button class="btn btn-box w-100">
+            {% if not result.correct %}
+              <h2>Corrected Text</h2>
+              <div class="card mb-3">
+                <p class="mb-4">{{ result.corrected_text }}</p>
+                <p class="text-right text-success font-weight-bold">
+                  Errors corrected<i class="fas fa-check-circle ml-2"></i>
+                </p>
+              </div>
+              {% if result.correct %}
+                <input id="clipboard-copy-text" type="text" value="{{ result.text }}" hidden>
+              {% else %}
+                <input id="clipboard-copy-text" type="text" value="{{ result.corrected_text }}" hidden>
+              {% endif %}
+            {% endif %}
+            <button id="clipboard-copy-button" class="btn btn-box w-100">
               <i class="fas fa-clipboard mr-2"></i>COPY TO CLIPBOARD
+              <i id="clipboard-copy-icon" class="fas fa-check-circle text-success ml-2" hidden></i>
             </button>
           </div>
         </div>
