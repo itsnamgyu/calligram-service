@@ -28,4 +28,8 @@ h1.history {
   font-size: 0.875rem;
   font-weight: 400;
   color: #444;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 100%
 }
