@@ -36,13 +36,16 @@ class ResultView(FormView):
 
     def form_valid(self, form):
         image = form.cleaned_data["image"]
-        text = extract_text(image)
-        corrected_text, correction_info = correct_text(text)
 
         result = Result()
         if self.request.user.is_authenticated:
             result.user = self.request.user
         result.image = image
+        result.save()
+
+        text = extract_text(result.image.path)
+        corrected_text, correction_info = correct_text(text)
+
         result.text = text
         result.corrected_text = corrected_text
         result.correction_info = correction_info

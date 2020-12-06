@@ -9,7 +9,7 @@ class Result(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
     image = models.ImageField()
-    text = models.TextField()
-    corrected_text = models.TextField()
-    correction_info = models.TextField(null=True)
-    correct = models.BooleanField()
+    text = models.TextField(null=True, blank=False)
+    corrected_text = models.TextField(null=True, blank=False)
+    correction_info = models.TextField(null=True, blank=False)
+    correct = models.BooleanField(null=True, blank=False)
