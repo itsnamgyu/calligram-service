@@ -6,7 +6,7 @@ django-dotenv
 django-bootstrap4
 django-allauth
 django-debug-toolbar
-py-hanspell
+-e git+https://github.com/ssut/py-hanspell.git#egg=py-hanspell
 # Live reload for development
 django-livesync
 # Amazon SES (Email)
